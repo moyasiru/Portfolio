@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // 정적 파일 서빙 (public 폴더에서 파일 제공)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // 기본 경로 ("/")로 접속하면 index.html을 반환
 app.get('/', (req, res) => {
