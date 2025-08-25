@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 기본 경로 ("/")로 접속하면 index.html을 반환
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/api/profile', (req, res) => {
