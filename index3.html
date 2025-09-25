@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Tae Hyeon Kang :)</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" /> 
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #333;
+            --hover-transform: translateY(-10px);
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #fff; }
+        }
+
+        /* Navigation */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.8) !important;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--dark-bg);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: var(--hover-transform);
+            border-color: #667eea;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            padding: 30px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .project-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .project-period {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .project-body {
+            padding: 0 30px 30px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge.java { background: linear-gradient(135deg, #f89820 0%, #ed8936 100%); }
+        .tech-badge.spring { background: linear-gradient(135deg, #6db33f 0%, #4a7c59 100%); }
+        .tech-badge.mysql { background: linear-gradient(135deg, #4479a1 0%, #336791 100%); }
+        .tech-badge.javascript { background: linear-gradient(135deg, #f7df1e 0%, #e6c71a 100%); color: #000; }
+        .tech-badge.security { background: linear-gradient(135deg, #dc3545 0%, #bd2130 100%); }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .feature-content h6 {
+            margin: 0 0 5px 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .feature-content p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .contribution-chart {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+        }
+
+        .progress-ring {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .progress-ring.bg {
+            stroke: var(--border-color);
+        }
+
+        .progress-ring.fill {
+            stroke: #667eea;
+            stroke-dasharray: 220;
+            stroke-dashoffset: 55; /* 75% */
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .accordion-button {
+            background: transparent !important;
+            border: none !important;
+            color: var(--text-primary) !important;
+            padding: 0 !important;
+            width: 100%;
+            text-align: left;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none !important;
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            transform: rotate(180deg) !important;
+        }
+
+        .accordion-collapse {
+            background: transparent;
+        }
+
+        .accordion-body {
+            padding: 20px 0 0 0 !important;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 100px 0;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(10px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                text-align: center;
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .project-stats {
+                width: 100%;
+                justify-content: space-around;
+            }
+        }
+        /* Image Gallery */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .project-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px 10px 10px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        /* 모달 스타일 */
+        .image-modal .modal-dialog {
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+        
+        .image-modal .modal-content {
+            background: #000;
+            border: none;
+        }
+        
+        .image-modal .modal-body {
+            padding: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-nav:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .modal-nav.prev {
+            left: 20px;
+        }
+        
+        .modal-nav.next {
+            right: 20px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.1);
+        }
+        
+        .image-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+        
+        .image-counter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .thumbnail-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background: #111;
+            overflow-x: auto;
+        }
+        
+        .thumbnail {
+            width: 60px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail.active {
+            opacity: 1;
+            border-color: #007bff;
+        }
+        
+        .thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .project-description {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .project-period {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            white-space: nowrap;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .tech-badge {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .project-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* 새로 추가되는 스타일 */
+        .contribution-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contribution-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .contribution-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .contribution-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .responsibility-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .responsibility-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .responsibility-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 15px;
+        }
+        
+        .responsibility-content {
+            flex-grow: 1;
+        }
+        
+        .responsibility-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        
+        .responsibility-desc {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .progress-wrapper {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+        
+        .progress-circle {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-90deg);
+        }
+        
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+        }
+        
+        .progress-bg {
+            stroke: #e9ecef;
+        }
+        
+        .progress-bar-circle {
+            stroke: #28a745;
+            stroke-dasharray: 188;
+            stroke-dashoffset: 47; /* 75% progress */
+            transition: stroke-dashoffset 0.5s ease-in-out;
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .learning-points {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .learning-points h5 {
+            color: #d35400;
+            margin-bottom: 15px;
+        }
+        
+        .learning-item {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #e67e22;
+        }
+        
+        .achievement-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+        
+        .challenge-solved {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .challenge-solved h6 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .before, .after {
+            padding: 10px;
+            border-radius: 6px;
+        }
+        
+        .before {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .after {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">TaeHyeon.dev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <div class="mb-4">
+                        <img class="profile-image" src="assets/undraw_profile_2.svg" alt="Profile">
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">강태현</h1>
+                    <h2 class="h4 mb-3">Backend Developer</h2>
+                    <p class="lead mb-4">노력하는 개발자, 사용자에게 가치를 주는 웹을 고민합니다</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-envelope me-2"></i>
+                                <span>rkdxogus1111@naver.com</span>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-phone me-2"></i>
+                                <span>010-7158-1801</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="badge tech-badge java">Java</span>
+                        <span class="badge tech-badge spring">Spring</span>
+                        <span class="badge tech-badge mysql">MySQL</span>
+                        <span class="badge tech-badge javascript">JavaScript</span>
+                        <span class="badge tech-badge security">Spring Security</span>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-outline-light btn-lg">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </button>
+                        <button class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-download me-2"></i>Resume
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="skill-item">
+                                <h5>2024.06</h5>
+                                <p>SQLD 자격증</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="skill-item">
+                                <h5>2025</h5>
+                                <p>정보처리기사 필기</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="skill-item">
+                                <h5>가람시스템 (2023.08 ~ Present)</h5>
+                                <p>그룹웨어 개발자</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="accordion" id="projectsAccordion">
+                <!-- Project 1 -->
+                <div class="project-card animate-slide-up">
+                    <div class="project-header" data-bs-toggle="collapse" data-bs-target="#project1">
+                        <div class="project-title">SoluM Project / Microsoft Teams 탭에 그룹웨어 연동</div>
+                        <div class="project-subtitle">
+                            Microsoft Teams 환경에서 그룹웨어 패키지를 탭으로 추가하여 SSO 연동, 다국어 지원, 전자결재 시스템을 구축한 프로젝트
+                        </div>
+                        
+                        <div class="project-meta">
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">85%</span>
+                                    <div class="stat-label">기여도</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">5개월</span>
+                                    <div class="stat-label">기간</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">4명</span>
+                                    <div class="stat-label">팀원</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1,000+</span>
+                                    <div class="stat-label">사용자</div>
+                                </div>
+                            </div>
+                            <div class="project-period">2025.5.1 - 2025.10.1</div>
+                        </div>
+                    </div>
+
+                    <div id="project1" class="accordion-collapse collapse" data-bs-parent="#projectsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="tech-stack">
+                                        <span class="badge tech-badge java">Java</span>
+                                        <span class="badge tech-badge spring">Spring</span>
+                                        <span class="badge tech-badge">Microsoft Teams API</span>
+                                        <span class="badge tech-badge">MSSQL</span>
+                                        <span class="badge tech-badge">Hibernate</span>
+                                    </div>
+
+                                    <div class="contribution-chart">
+                                        <h6 class="mb-3">주요 담당 업무 및 기여도</h6>
+                                        <ul class="feature-list">
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-key"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>SSO 연동 시스템 (100%)</h6>
+                                                    <p>Microsoft Teams API 연동, 토큰 기반 인증, 사용자 정보 매핑 전체 설계 및 구현</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-globe"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>다국어 처리 모듈 (100%)</h6>
+                                                    <p>7개국 언어 지원, MessageSource 기반 국제화, 리소스 파일 관리</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-paint-brush"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>UI/UX 개선 및 최적화 (80%)</h6>
+                                                    <p>삼성SDS 그룹웨어 UI 매칭, 모달 시스템 구현, Bootbox 알림 시스템</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>보안 시스템 구축 (70%)</h6>
+                                                    <p>SSL 인증서 적용, 보안 정책 수립, 데이터 암호화 처리</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="alert" style="background: rgba(231, 76, 60, 0.1); border-left: 4px solid #e74c3c; color: #fff;">
+                                        <h6><i class="fas fa-lightbulb"></i> 주요 해결 과제</h6>
+                                        <p class="mb-2"><strong>Microsoft Teams Tap ifrmae 환경 cors, 쿠키 이슈:</strong> WAS에 CORS,쿠키값 관련 설정 셋팅</p>
+                                        <p class="mb-2"><strong>Teams의 window.open() 세션 단절, alert/confirm 미지원:</strong> Bootbox 모달 시스템 도입</p>
+                                        <p class="mb-2"><strong>다국어 리소스 관리 복잡성:</strong> MessageSource 통합 관리</p>
+                                    </div>
+
+                                    <div class="alert" style="background: rgba(67, 233, 123, 0.1); border-left: 4px solid #43e97b; color: #fff;">
+                                        <h6><i class="fas fa-graduation-cap"></i>이 프로젝트를 통해 배운 것</h6>
+                                        <p class="mb-2">TEAMS API를 활용해 SSO(Single Sign-On)를 구현하는 과정에서, 
+                                            세션 타임아웃, 세션 유지, 인증 흐름 관리 등 여러 가지 기술적 과제를 직접 경험했습니다. 
+                                            이를 통해 SSO 설계의 복잡성과 안정적인 인증 시스템 구축의 중요성을 깊이 이해하게 되었습니다.</p>
+                                        <p class="mb-2">대규모 사용자 서비스 고려사항
+                                            1,500명 사용자 대응을 위한 성능 최적화 및 안정성 확보 방법론 습득</p>
+                                        <p class="mb-2">크로스 플랫폼 호환성
+                                            Teams 환경의 제약사항을 분석하고 최적화된 솔루션 도출 경험</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="project-gallery">
+                                        <div class="gallery-item" onclick="openImageModal(0,1)">
+                                            <img src="/assets/teams_tap_groupware.png" alt="Teams 탭 그룹웨어 메인">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">Teams 탭 그룹웨어 메인 화면</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(1,1)">
+                                            <img src="/assets/modal.png" alt="모달 시스템">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">Bootstrap 모달 시스템</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(2,1)">
+                                            <img src="/assets/전자결재ui.png" alt="전자결재 UI">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자결재 UI</div>
+                                        </div>
+
+                                        <div class="gallery-item" onclick="openImageModal(3,1)">
+                                            <img src="/assets/errorPage.png" alt="에러페이지">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">팀즈 내에 표시될 에러페이지</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(4,1)">
+                                            <img src="/assets/PDM 시스템프로그램 및 데이터 변경 신청서.png" alt="전자결재 양식">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자결재 양식</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(5,1)">
+                                            <img src="/assets/UNIERP 权限申请.png" alt="전자결재 양식">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자결재 양식</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(6,1)">
+                                            <img src="/assets/초과 예산 신청 품의.png" alt="전자결재 양식">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자결재 양식</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(7,1)">
+                                            <img src="/assets/[China]休假申请(中國).png" alt="전자결재 양식">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자결재 양식</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(8,1)">
+                                            <img src="/assets/(VIETNAM) Request for programchange and data change.png" alt="전자결재 양식">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자결재 양식</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <p class="mb-2">
+                                            <small>
+                                                <i class="fas fa-images"></i> 총 9개의 프로젝트 갤러리
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- 이미지 모달 -->
+                                <div class="modal fade image-modal" id="imageModal_1" tabindex="-1">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button class="modal-close" onclick="closeImageModal()">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                                
+                                                <div class="image-counter">
+                                                    <span id="currentImage_1">1</span> / <span id="totalImages_1">8</span>
+                                                </div>
+                                                
+                                                <button class="modal-nav prev" onclick="prevImage()">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </button>
+                                                
+                                                <img id="modalImage_1" class="modal-image" src="" alt="">
+                                                
+                                                <button class="modal-nav next" onclick="nextImage()">
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </button>
+                                                
+                                                <div class="image-info">
+                                                    <h5 id="imageTitle_1">이미지 제목</h5>
+                                                    <p id="imageDescription_1">이미지 설명</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- 썸네일 네비게이션 -->
+                                            <div class="thumbnail-nav">
+                                                <img class="thumbnail active" src="/assets/teams_tap_groupware.png" onclick="goToImage(0,1)">
+                                                <img class="thumbnail" src="/assets/modal.png" onclick="goToImage(1,1)">
+                                                <img class="thumbnail" src="/assets/전자결재ui.png" onclick="goToImage(2,1)">
+                                                <img class="thumbnail" src="/assets/errorPage.png" onclick="goToImage(3,1)">
+                                                <img class="thumbnail" src="/assets/PDM 시스템프로그램 및 데이터 변경 신청서.png" onclick="goToImage(4,1)">
+                                                <img class="thumbnail" src="/assets/UNIERP 权限申请.png" onclick="goToImage(5,1)">
+                                                <img class="thumbnail" src="/assets/초과 예산 신청 품의.png" onclick="goToImage(6,1)">
+                                                <img class="thumbnail" src="/assets/[China]休假申请(中國).png" onclick="goToImage(7,1)">
+                                                <img class="thumbnail" src="/assets/(VIETNAM) Request for programchange and data change.png" onclick="goToImage(8,1)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card animate-slide-up">
+                    <div class="project-header" data-bs-toggle="collapse" data-bs-target="#project2">
+                        <div class="project-title">"스타리온" 업무 효율화를 위한 그룹웨어 시스템 및 모바일 앱 구축</div>
+                        <div class="project-subtitle">
+                            Java 기반 그룹웨어 패키지 개발과 ERP 연동, 하이브리드 앱 개발을 통한 종합 업무 시스템 구축
+                        </div>
+                        
+                        <div class="project-meta">
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">70%</span>
+                                    <div class="stat-label">기여도</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">6개월</span>
+                                    <div class="stat-label">기간</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">5명</span>
+                                    <div class="stat-label">팀원</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1,500+</span>
+                                    <div class="stat-label">사용자</div>
+                                </div>
+                            </div>
+                            <div class="project-period">2023/08 ~ 2024/02</div>
+                        </div>
+                    </div>
+
+                    <div id="project2" class="accordion-collapse collapse" data-bs-parent="#projectsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="tech-stack">
+                                        <span class="badge tech-badge java">Java</span>
+                                        <span class="badge tech-badge spring">Spring</span>
+                                        <span class="badge tech-badge">Ubuntu 14.04</span>
+                                        <span class="badge tech-badge">MariaDB</span>
+                                        <span class="badge tech-badge">Hibernate</span>
+                                        <span class="badge tech-badge">JAMES SMTP</span>
+                                    </div>
+
+                                    <div class="contribution-chart">
+                                        <h6 class="mb-3">주요 담당 업무</h6>
+                                        <ul class="feature-list">
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-exchange-alt"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>ERP·그룹웨어 연동 (100%)</h6>
+                                                    <p>
+                                                       - JDBC를 이용해 연동하여 실시간으로 데이터 처리<br>
+                                                       - 실시간 연동이 불가능한 경우에는 배치 처리 방식(Quartz Scheduler)을 적용하여 정기적으로 최신 데이터를 그룹웨어로 전송
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-history"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>문서 자동 추적 시스템 (100%)</h6>
+                                                    <p>
+                                                        - 문서 수정 시 사용자 정보 및 수정 시간을 자동 기록<br>
+                                                        - 언제, 누구에 의해 수정되었는지 추적 가능<br>
+                                                        - 수정 전 데이터를 히스토리로 저장하여, 필요한 경우 이전 버전으로 되돌릴 수 있는 기능 제공
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-cogs"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>게시판 관리 기능 (80%)</h6>
+                                                    <p>
+                                                        - 그룹웨어 관리자가 새로운 게시판을 생성하거나 기존 게시판을 삭제할 수 있는 관리자 기능 구현<br>
+                                                        - 게시판의 조회 권한을 세부적으로 설정하여, 특정 사용자 그룹 또는 개별 사용자에게만 게시판 조회 권한을 부여<br>
+                                                        - 중요 내용 표시 및 팝업 기간 설정<br>
+                                                        - 팝업의 노출 기간 및 빈도 설정을 통해 불필요한 알림을 최소화하고, 필요한 사용자에게만 중요한 정보를 효과적으로 전달
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>달력 UI 설계 (70%)</h6>
+                                                    <p>
+                                                        - FullCalendar 라이브러리를 활용하여 직관적인 달력 기반의 외출장 관리 인터페이스 설계<br>
+                                                        - 월간, 주간, 일간 보기 기능 제공으로 사용자가 원하는 시간 단위로 외출장 일정을 확인 가능<br>
+                                                        - 외출장 데이터는 색상 코드로 구분하여 상태(승인, 대기, 반려 등)를 한눈에 파악할 수 있도록 구현
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fa fa-envelope"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>메일 팝업 UI (80%)</h6>
+                                                    <p>
+                                                        - JQGrid에서 발신자 데이터를 선택하면, qTip 라이브러리를 이용하여 팝업으로 간략한 정보와 기능 목록을 제공<br>
+                                                        - 팝업은 마우스 오버 시 동적으로 표시되며, 주요 액션을 쉽게 수행할 수 있도록 설계
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="menu-icon fa fa-sitemap  f-n-hover"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>조직도 트리 구현 (80%)</h6>
+                                                    <p>
+                                                        - jQuery Dynatree 플러그인을 활용해 다중 계층 구조의 조직도를 트리 형태로 구현
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="alert" style="background: rgba(102, 126, 234, 0.1); border-left: 4px solid #667eea; color: #fff;">
+                                        <h6><i class="fas fa-rocket"></i>주요 해결 과제</h6>
+                                        <p class="mb-2"><strong>웹과 모바일 하이브리드 앱 간 틀어짐 이슈:</strong> 초기 기획 단계에서 웹/앱 공통 UI 가이드라인 정의 및 제약사항 사전 분석</p>
+                                        <p class="mb-2"><strong>Android와 iOS WebView 렌더링 차이로 인한 UI 요소 배치 틀어짐:</strong> 하이브리드 앱 전용 CSS 분기 처리: User-Agent 감지를 통한 플랫폼별 스타일 적용 및 네이티브 요소 충돌 방지</p>
+                                        <p class="mb-2"><strong>다양한 사용자의 UI 요구사항 반영 시 레이아웃 복잡성 증가:</strong> 사용자 피드백을 단계적으로 반영하는 애자일 개발 프로세스 도입</p>
+                                    </div>
+
+                                    <div class="alert" style="background: rgba(67, 233, 123, 0.1); border-left: 4px solid #43e97b; color: #fff;">
+                                        <h6><i class="fas fa-graduation-cap"></i>이 프로젝트를 통해 배운 것</h6>
+                                        <p class="mb-2">대규모 시스템 연동의 복잡성 이해
+                                            ERP와 그룹웨어 간 실시간 데이터 연동 과정에서 시스템 간 데이터 호환성과 동기화의 중요성을 깨달았으며,
+                                            배치 처리와 실시간 처리의 적절한 선택 기준을 습득</p>
+                                        <p class="mb-2">라이브러리 활용과 커스터마이징 능력
+                                            FullCalendar, jQuery Dynatree 등 오픈소스 라이브러리 활용 경험을 통해 기존 솔루션을
+                                            프로젝트 요구사항에 맞게 최적화하는 능력 향상</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="project-gallery">
+                                        <div class="gallery-item" onclick="openImageModal(0,2)">
+                                            <img src="/assets/starion_login.png" alt="로그인 화면">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">스타리온 그룹웨어 로그인 화면</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(1,2)">
+                                            <img src="/assets/starion_main.png" alt="메인 화면">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">스타리온 그룹웨어 메인 화면</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(2,2)">
+                                            <img src="/assets/starion_calendar.png" alt="캘린더">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">캘린더</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(3,2)">
+                                            <img src="/assets/starion_mailList.png" alt="전자메일 목록">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">전자메일 목록</div>
+                                        </div>
+                                        
+                                        <div class="gallery-item" onclick="openImageModal(4,2)">
+                                            <img src="/assets/쿼츠 관리자 페이지.png" alt="쿼츠 관리자 페이지">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">쿼츠 관리자 페이지</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <p class="mb-2">
+                                            <small>
+                                                <i class="fas fa-images"></i> 총 5개의 프로젝트 갤러리
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- 이미지 모달 -->
+                                <div class="modal fade image-modal" id="imageModal_2" tabindex="-1">
+                                    <div class="modal-dialog modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <button class="modal-close" onclick="closeImageModal()">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                                
+                                                <div class="image-counter">
+                                                    <span id="currentImage_2">1</span> / <span id="totalImages_2">8</span>
+                                                </div>
+                                                
+                                                <button class="modal-nav prev" onclick="prevImage()">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </button>
+                                                
+                                                <img id="modalImage_2" class="modal-image" src="" alt="">
+                                                
+                                                <button class="modal-nav next" onclick="nextImage()">
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </button>
+                                                
+                                                <div class="image-info">
+                                                    <h5 id="imageTitle_2">이미지 제목</h5>
+                                                    <p id="imageDescription_2">이미지 설명</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- 썸네일 네비게이션 -->
+                                            <div class="thumbnail-nav">
+                                                <img class="thumbnail active" src="/assets/starion_login.png" onclick="goToImage(0,2)">
+                                                <img class="thumbnail" src="/assets/starion_main.png" onclick="goToImage(1,2)">
+                                                <img class="thumbnail" src="/assets/starion_calendar.png" onclick="goToImage(2,2)">
+                                                <img class="thumbnail" src="/assets/starion_mailList.png" onclick="goToImage(3,2)">
+                                                <img class="thumbnail" src="/assets/쿼츠 관리자 페이지.png" onclick="goToImage(4,2)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card animate-slide-up">
+                    <div class="project-header" data-bs-toggle="collapse" data-bs-target="#project3">
+                        <div class="project-title">Spring Security를 이용한 통합 OAuth2 로그인 기능 구현</div>
+                        <div class="project-subtitle">
+                            카카오, 구글, 네이버 소셜 로그인을 통합 관리하는 Spring Security 기반 인증 시스템 개발
+                        </div>
+                        
+                        <div class="project-meta">
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">100%</span>
+                                    <div class="stat-label">개인 프로젝트</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <div class="stat-label">소셜 플랫폼</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">OAuth2</span>
+                                    <div class="stat-label">인증 방식</div>
+                                </div>
+                            </div>
+                            <div class="project-period">개인 학습 프로젝트</div>
+                        </div>
+                    </div>
+
+                    <div id="project3" class="accordion-collapse collapse" data-bs-parent="#projectsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="tech-stack">
+                                        <span class="badge tech-badge java">Java</span>
+                                        <span class="badge tech-badge spring">Spring Boot</span>
+                                        <span class="badge tech-badge security">Spring Security</span>
+                                        <span class="badge tech-badge mysql">MySQL</span>
+                                        <span class="badge tech-badge">OAuth2</span>
+                                    </div>
+
+                                    <div class="contribution-chart">
+                                        <h6 class="mb-3">구현 내용</h6>
+                                        <ul class="feature-list">
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-users"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>통합 소셜 로그인</h6>
+                                                    <p>Spring Security를 활용하여 카카오, 구글, 네이버 소셜 로그인 기능을 통합적으로 구현하였으며, 기존 로그인 방식(Local Login)과도 연동되도록 설정</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-lock"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>보안 강화</h6>
+                                                    <p>사용자 인증 과정에 보안을 한층 높였으며, 민감정보를 BCrypt 기반으로 암호화</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-expand-arrows-alt"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>확장 가능한 구조</h6>
+                                                    <p>다양한 소셜 로그인 기능을 통합 관리할 수 있도록 하나의 메소드 안에서 각 플랫폼별 인증 과정을 처리하는 공통 모듈을 설계 및 개발.<br>코드의 중복을 줄이고 유지보수성을 높였으며, 신규 소셜 플랫폼 추가 시에도 손쉽게 확장할 수 있는 구조를 구현</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="alert" style="background: rgba(67, 233, 123, 0.1); border-left: 4px solid #43e97b; color: #fff;">
+                                        <h6><i class="fas fa-graduation-cap"></i> 학습 배경</h6>
+                                        <p class="mb-0">SSO 및 ERP 연동 개발 경험을 통해 토큰 기반 인증의 필요성을 인식하고, 보다 체계적인 인증 시스템 구축을 위해 Spring Security를 심화 학습</p>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <a href="#" class="btn btn-outline-primary">
+                                            <i class="fas fa-external-link-alt me-2"></i>상세 구현 가이드
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="project-gallery">
+                                        <div class="gallery-item">
+                                            <img src="assets/login.png" alt="로그인 UI">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">로그인 UI</div>
+                                        </div>
+                                        <div class="gallery-item">
+                                            <img src="assets/security1.png" alt="Security 설정">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">Security 설정</div>
+                                        </div>
+                                        <div class="gallery-item">
+                                            <img src="assets/security2.png" alt="Security 설정">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">Security 설정</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card animate-slide-up">
+                    <div class="project-header" data-bs-toggle="collapse" data-bs-target="#project4">
+                        <div class="project-title">개인 프로젝트 - 도서관리 시스템</div>
+                        <div class="project-subtitle">
+                            Spring Boot 기반 도서관리 프로그램으로 데이터 시각화, 웹 크롤링, Kafka 채팅 시스템 등 다양한 기술을 학습하고 적용한 프로젝트
+                        </div>
+                        
+                        <div class="project-meta">
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3주</span>
+                                    <div class="stat-label">개발 기간</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">5+</span>
+                                    <div class="stat-label">핵심 기능</div>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">Kafka</span>
+                                    <div class="stat-label">메시징</div>
+                                </div>
+                            </div>
+                            <div class="project-period">국비 훈련 과정</div>
+                        </div>
+                    </div>
+
+                    <div id="project4" class="accordion-collapse collapse" data-bs-parent="#projectsAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="tech-stack">
+                                        <span class="badge tech-badge java">Java</span>
+                                        <span class="badge tech-badge spring">Spring Boot</span>
+                                        <span class="badge tech-badge">MyBatis</span>
+                                        <span class="badge tech-badge">Oracle</span>
+                                        <span class="badge tech-badge">Thymeleaf</span>
+                                        <span class="badge tech-badge">Apache Kafka</span>
+                                    </div>
+
+                                    <div class="contribution-chart">
+                                        <h6 class="mb-3">주요 구현 기능</h6>
+                                        <ul class="feature-list">
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-chart-bar"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>Amchart 데이터 시각화</h6>
+                                                    <p>Amchart 라이브러리를 활용하여 동적 차트를 구현하고, DB와 연동하여 실시간 데이터를 기반으로 차트를 생성</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-images"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>Slick 슬라이더 구현</h6>
+                                                    <p>Slick Slider 플러그인을 사용하여 반응형 이미지 슬라이더를 구현, 웹 페이지의 디자인을 상호작용성 있게 만들어 사용자 경험을 향상</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-spider"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>Jsoup 웹 크롤링</h6>
+                                                    <p>Jsoup 라이브러리를 사용하여 외부 웹 페이지를 크롤링하고, 필요한 데이터를 추출하여 동적 콘텐츠를 표시하는 기능을 구현</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-comments"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>Kafka 채팅 시스템</h6>
+                                                    <p>웹소켓만으로는 세션 단위로 메시지를 전달하기 때문에 하나의 채팅방에만 메시지를 보내는 데 한계가 있었습니다.<br>이를 해결하기 위해 Kafka를 사용하여 여러 채팅방에서 메시지를 효율적으로 처리하고 분배할 수 있도록 개선</p>
+                                                </div>
+                                            </li>
+                                            <li class="feature-item">
+                                                <div class="feature-icon">
+                                                    <i class="fas fa-edit"></i>
+                                                </div>
+                                                <div class="feature-content">
+                                                    <h6>CKEditor 통합</h6>
+                                                    <p>CKEditor를 이용하여 텍스트 크기, 문단 나눔, 사진 업로드 등의 기능을 편리하게 이용 가능하게 구현</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="alert" style="background: rgba(67, 233, 123, 0.1); border-left: 4px solid #43e97b; color: #fff;">
+                                        <h6><i class="fas fa-lightbulb"></i> 핵심 기술적 성과</h6>
+                                        <p class="mb-0"><strong>Kafka 도입 효과:</strong> 웹소켓만으로는 한계였던 다중 채팅방 메시지 처리를 Kafka를 통해 효율적으로 분산 처리하여 확장성 확보</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="project-gallery">
+                                        <div class="gallery-item">
+                                            <img src="assets/greenMain.png" alt="메인 화면">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">메인 화면</div>
+                                        </div>
+                                        <div class="gallery-item">
+                                            <img src="assets/greenTalk.png" alt="채팅">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">채팅</div>
+                                        </div>
+                                        <div class="gallery-item">
+                                            <img src="assets/greenEditor.png" alt="에디터">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">에디터</div>
+                                        </div>
+                                        <div class="gallery-item">
+                                            <img src="assets/greenKafka.png" alt="아키텍처">
+                                            <div class="overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="image-caption">아키텍처</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="about-card">
+                        <h2 class="section-title mb-4">About Me</h2>
+                        <p class="lead mb-4">노력하는 개발자 강태현입니다.</p>
+                        
+                        <div class="row text-center mb-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="feature-icon mx-auto mb-3" style="background: var(--primary-gradient); width: 60px; height: 60px;">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h5>배우는 걸 좋아하는 개발자</h5>
+                                <p class="text-muted">새로운 기술과 트렌드를 지속적으로 학습합니다</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="feature-icon mx-auto mb-3" style="background: var(--secondary-gradient); width: 60px; height: 60px;">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h5>사용자 가치를 고민</h5>
+                                <p class="text-muted">사용자에게 실질적인 가치를 제공하는 웹을 만듭니다</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="feature-icon mx-auto mb-3" style="background: var(--success-gradient); width: 60px; height: 60px;">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h5>지속적인 성장</h5>
+                                <p class="text-muted">오늘보다 나은 내일을 위해 코딩합니다</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="mb-3">Experience</h5>
+                                <div class="skill-item mb-3">
+                                    <strong>가람시스템 (2023.08 ~ Present)</strong>
+                                    <p class="mb-0 text-muted">그룹웨어 개발자</p>
+                                    <small class="text-muted">중소·중견 기업 대상 그룹웨어 솔루션 개발</small>
+                                </div>
+                                <div class="skill-item">
+                                    <strong>자바 & 스프링 개발자 양성과정 (2023.02 ~ 2023.08)</strong>
+                                    <p class="mb-0 text-muted">고용노동부 국비 훈련</p>
+                                    <small class="text-muted">Java, Spring, DB 설계, API 개발</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="mb-3">Certificates</h5>
+                                <div class="skill-item mb-3">
+                                    <strong>SQL개발자 (SQLD)</strong>
+                                    <p class="mb-0 text-muted">2024.06 합격</p>
+                                    <small class="text-muted">한국데이터베이스진흥센터</small>
+                                </div>
+                                <div class="skill-item">
+                                    <strong>정보처리기사</strong>
+                                    <p class="mb-0 text-muted">2025 정기 1회 필기 합격</p>
+                                    <small class="text-muted">큐넷</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+
+        // // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            observer.observe(el);
+        });
+
+        // // Typing effect for hero section
+        const typingText = document.querySelector('.typing-effect');
+        if (typingText) {
+            const text = typingText.textContent;
+            typingText.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    typingText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Gallery image modal functionality
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // This would open a modal with the image
+                // Implementation depends on your modal library choice
+                console.log('Opening image modal for:', this.querySelector('img').src);
+            });
+        });
+
+        // 이미지 데이터 배열
+            const imageData = [
+                {
+                    src: "/assets/teams_tap_groupware.png",
+                    title: "Teams 탭 그룹웨어 메인 화면",
+                    description: "Microsoft Teams 탭에서 실행되는 그룹웨어의 메인 대시보드입니다. 사용자 친화적인 UI로 구성되어 있습니다."
+                },
+                {
+                    src: "/assets/modal.png",
+                    title: "Teams에서 confirm, alert 등 기본함수 지원안함으로 인해 Bootbox 모달 도입",
+                    description: "모달 방식으로 구현한 시스템입니다."
+                },
+                {
+                    src: "/assets/전자결재ui.png",
+                    title: "전자결재 시스템",
+                    description: "삼성SDS 그룹웨어와 유사한 UI로 구성된 전자결재 승인 프로세스 화면입니다."
+                },
+                {
+                    src: "/assets/errorPage.png",
+                    title: "에러 페이지",
+                    description: "팀즈내에 표시될 에러 페이지입니다."
+                },
+                {
+                    src: "/assets/PDM 시스템프로그램 및 데이터 변경 신청서.png",
+                    title: "전자결재 양식",
+                    description: "전자결재 양식입니다."
+                },
+                {
+                    src: "/assets/UNIERP 权限申请.png",
+                    title: "전자결재 양식",
+                    description: "전자결재 양식입니다."
+                },
+                {
+                    src: "/assets/초과 예산 신청 품의.png",
+                    title: "전자결재 양식",
+                    description: "전자결재 양식입니다."
+                },
+                {
+                    src: "/assets/[China]休假申请(中國).png",
+                    title: "전자결재 양식",
+                    description: "전자결재 양식입니다."
+                },
+                {
+                    src: "/assets/(VIETNAM) Request for programchange and data change.png",
+                    title: "전자결재 양식",
+                    description: "전자결재 양식입니다."
+                }
+            ];
+
+             // 이미지 데이터 배열
+            const imageData2 = [
+                {
+                    src: "/assets/starion_login.png",
+                    title: "스타리온 그룹웨어 로그인 화면",
+                    description: "스타리온 그룹웨어 로그인 화면"
+                },
+                {
+                    src: "/assets/starion_main.png",
+                    title: "스타리온 그룹웨어 메인 화면",
+                    description: "스타리온 그룹웨어 메인 화면"
+                },
+                {
+                    src: "/assets/starion_calendar.png",
+                    title: "캘린더",
+                    description: "캘린더"
+                },
+                {
+                    src: "/assets/starion_mailList.png",
+                    title: "전자메일 목록",
+                    description: "전자메일 목록"
+                },
+                {
+                    src: "/assets/쿼츠 관리자 페이지.png",
+                    title: "쿼츠 관리자 페이지",
+                    description: "쿼츠 관리자 페이지"
+                }
+            ];
+
+            let currentIndex = 0;
+            let modal_1;
+            let modal_2;
+            let idx;
+            // 모달 초기화
+            document.addEventListener('DOMContentLoaded', function() {
+                modal_1 = new bootstrap.Modal(document.getElementById('imageModal_1'));
+                modal_2 = new bootstrap.Modal(document.getElementById('imageModal_2'));
+            });
+
+            // 이미지 모달 열기
+            function openImageModal(index, projectCount) {
+                idx = projectCount;
+                currentIndex = index;
+                updateModalImage(projectCount);
+                if (projectCount == 1) {
+                    modal_1.show();
+                } else if (projectCount == 2) {
+                    modal_2.show();
+                }
+            }
+
+            // 이미지 모달 닫기
+            function closeImageModal() {
+                modal_1.hide();
+                modal_2.hide();
+            }
+
+            // 이전 이미지
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + imageData.length) % imageData.length;
+                updateModalImage(idx);
+            }
+
+            // 다음 이미지
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % imageData.length;
+                updateModalImage(idx);
+            }
+
+            // 특정 이미지로 이동
+            function goToImage(index, projectCount) {
+                idx = projectCount;
+                currentIndex = index;
+                updateModalImage(projectCount);
+            }
+
+            // 모달 이미지 업데이트
+            function updateModalImage(projectCount) {
+                var image;
+                if (projectCount == 1) {
+                    image = imageData[currentIndex];
+                } else if (projectCount == 2) {
+                    image = imageData2[currentIndex];
+                }
+                document.getElementById('modalImage_'+projectCount).src = image.src;
+                document.getElementById('imageTitle_'+projectCount).textContent = image.title;
+                document.getElementById('imageDescription_'+projectCount).textContent = image.description;
+                document.getElementById('currentImage_'+projectCount).textContent = currentIndex + 1;
+                document.getElementById('totalImages_'+projectCount).textContent = imageData.length;
+
+                // 썸네일 활성화 업데이트
+                document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // 키보드 이벤트
+            document.addEventListener('keydown', function(e) {
+                if (document.querySelector('.image-modal.show')) {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            prevImage();
+                            break;
+                        case 'ArrowRight':
+                            nextImage();
+                            break;
+                        case 'Escape':
+                            closeImageModal();
+                            break;
+                    }
+                }
+            });
+
+            // 모달 외부 클릭시 닫기
+            document.querySelectorAll('[id^="imageModal"]').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeImageModal();
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
